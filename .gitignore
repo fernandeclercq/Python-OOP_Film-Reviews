@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +128,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+=======
+venv/
+
+*.code-workspace
+>>>>>>> 57919f7 (create django project)
