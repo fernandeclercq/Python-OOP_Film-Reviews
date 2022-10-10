@@ -5,3 +5,5 @@ from .models import Nieuws
 
 admin.site.register(Nieuws)
 
+
+
