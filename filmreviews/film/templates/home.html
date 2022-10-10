@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1> Welkom in de home pagina. {{ name }}</h1>
+
+    <form action="">
+        <label for="film">Zoeken naar een film:</label>
+        <input type="text" name="zoekFilm" id="film"/>
+        <button type="submit">Zoek film</button>
+    </form>
+    <p>Zoeken naar {{ zoekTerm }}</p>
 </body>
 </html>
