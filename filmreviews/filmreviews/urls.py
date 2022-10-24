@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from django.urls import include
+
 from film import views as filmViews
 
 # Used to show media on pages
@@ -24,7 +27,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', filmViews.home),
-    path('over/', filmViews.over)
+    path('over/', filmViews.over),
+    path('nieuws/', include('nieuws.urls'))
 ]
 
 # Used to show media on pages
