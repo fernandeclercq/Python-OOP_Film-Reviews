@@ -17,8 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from film import views as filmViews
 
+# Used to show media on pages
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', filmViews.home),
     path('over/', filmViews.over)
 ]
+
+# Used to show media on pages
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

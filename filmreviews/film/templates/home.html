@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1> {{ naam }}</h1>
 
+<body>
     <form action="">
         <label for="film">Zoeken naar een film:</label>
-        <input type="text" name="zoekFilm" id="film"/>
+        <input type="text" name="zoekFilm" id="film" />
         <button type="submit">Zoek film</button>
     </form>
     <p>Zoeken naar {{ zoekTerm }}</p>
+
+    {% for film in films %}
+    <h2>{{ film.titel }}</h2>
+    <h3>{{ film.beschrijving }}</h3>
+    <img src="{{ film.afbeelding.url }}">
+    {% if film.url %}
+    <a href="{{ film.url }}">Film Link</a>
+    {% endif %}
+    {% endfor %}
 </body>
+
 </html>
