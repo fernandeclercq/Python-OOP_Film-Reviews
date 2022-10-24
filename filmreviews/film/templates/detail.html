@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <img src="{{ film.image.url }}" class="" alt="">
 {{ film.titel }}
 {% if film.url %}
@@ -5,3 +8,5 @@
 Film Link
 </a>
 {% endif %}
+
+{% endblock content %}
