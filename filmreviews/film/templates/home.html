@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Welkom</h1>
-<a href="{% url 'detail' film.id %}">{{film.titel }}</a>
+
+{% for film in films %}
+    <a href="{% url 'detail' film.id %}">{{ film.title }}</a>
+{% endfor %}
+
+
+
+
 {% endblock content %}
 
+
+<!-- <a href="{% url 'detail' film.id %}">{{ film.titel }}</a> -->
