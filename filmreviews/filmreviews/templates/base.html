@@ -9,11 +9,18 @@
     <link rel="stylesheet" href="{% static 'css/stijl.css' %}">
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <a href="{% url 'loguit' %}">Uitloggen ({{ user.username }})</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'registreer' %}">Registreer</a>
+    {% endif %}
     {% block content %}
     {% endblock content %}
     <br><br>
     <a href="{% url 'home' %}">Films</a>
     <a href="{% url 'nieuws' %}">Nieuws</a>
+    <a href="{% url 'registreer' %}">Accounts</a>
     
 </body>
 </html>
