@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<br><br>
 <img src="{{ film.afbeelding.url }}" class="film_afbeelding"><br><br>
 {{ film.titel }}
 {% if film.url %}
-    <a href="{{ film.url }}" class=""> Film Link </a>
+<a href="{{ film.url }}" class=""> Film Link </a><br><br>
 {% endif %}
+{% if user.is_authenticated %}
+<a href="{% url 'maakreview' film.id %}">
+    Voeg review toe
+</a><br><br>
+{% endif %}
+
 
 {% endblock content %}
