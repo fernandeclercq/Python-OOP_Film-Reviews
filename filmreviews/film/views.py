@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import Film, Review
 from django.shortcuts import get_object_or_404, redirect
 from .forms import ReviewForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -29,7 +30,7 @@ def detail(request, film_id):
 
     })
 
-
+@login_required
 def maakreview(request, film_id):
     film = get_object_or_404(Film, pk=film_id)
     if request.method == 'GET':
@@ -45,7 +46,7 @@ def maakreview(request, film_id):
         except ValueError:
             return render(request, 'maakreview.html', {'form':ReviewForm(), 'error': 'Niet correcte data'})
 
-
+@login_required
 def wijzigreview(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     if request.method == 'GET':
@@ -64,7 +65,7 @@ def wijzigreview(request, review_id):
                 'error': 'Foute data'
             })
     
-
+@login_required
 def verwijderreview(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     review.delete()

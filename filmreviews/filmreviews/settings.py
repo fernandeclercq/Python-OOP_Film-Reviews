@@ -136,3 +136,5 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / 'filmreviews/static/',
 ]
+
+LOGIN_URL = 'login'

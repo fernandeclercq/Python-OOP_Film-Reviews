@@ -8,6 +8,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -32,6 +33,8 @@ def registreer(request):
     except IntegrityError:
         return render(request, 'registreer.html', {'form':GebruikerRegistratieForm, 'error': 'Gebruikersnaam is reeds gebruikt'})
 
+
+@login_required
 def loguit(request):
     logout(request)
     return redirect('home')
